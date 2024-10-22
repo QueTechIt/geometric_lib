@@ -4,4 +4,4 @@ def area(a, b):
 def perimeter(a, b):
     return a + b
 
-print(1000)
+print(10000)
