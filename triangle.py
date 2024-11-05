@@ -1,21 +1,55 @@
-def horse_racing():
-    N = int(input())
-    wealth = list(map(int, input().split()))
-    wealth.sort(reverse=True)
-    result = []
-    remaining_tugriks = wealth.copy()
-    for i, w in enumerate(wealth):
-        for j in range(len(result)):
-            if all(result[k] >= w for k in range(j)):
-                if remaining_tugriks[i] > 0:
-                    remaining_tugriks[i] -= 1
-                    result.insert(j, w)
-                    break
-        else:
-            result.append(w)
-    if result:
-        print(' '.join(map(str, result)))
-    else:
-        print(':(')
+import math
 
-horse_racing()
+# Функция для вычисления площади треугольника по формуле Герона
+def calculate_area(a, b, c):
+    """
+    Вычисляет площадь треугольника по формуле Герона.
+
+    Параметры:
+    a (float): Длина первой стороны треугольника.
+    b (float): Длина второй стороны треугольника.
+    c (float): Длина третьей стороны треугольника.
+
+    Возвращает:
+    float: Площадь треугольника.
+    """
+    # Полупериметр
+    s = (a + b + c) / 2
+    # Площадь по формуле Герона
+    return math.sqrt(s * (s - a) * (s - b) * (s - c))
+
+
+# Функция для вычисления периметра треугольника
+def calculate_perimeter(a, b, c):
+    """
+    Вычисляет периметр треугольника.
+
+    Параметры:
+    a (float): Длина первой стороны треугольника.
+    b (float): Длина второй стороны треугольника.
+    c (float): Длина третьей стороны треугольника.
+
+    Возвращает:
+    float: Периметр треугольника.
+    """
+    return a + b + c  # Периметр = сумма всех сторон
+
+
+# Основная часть программы
+if __name__ == "__main__":
+    # Запрашиваем у пользователя длины сторон треугольника
+    a = float(input("Введите длину первой стороны треугольника: "))
+    b = float(input("Введите длину второй стороны треугольника: "))
+    c = float(input("Введите длину третьей стороны треугольника: "))
+
+    # Проверяем, может ли существовать треугольник с заданными сторонами
+    if a + b > c and a + c > b and b + c > a:
+        # Вычисляем площадь и периметр
+        area = calculate_area(a, b, c)  # Вызываем функцию для вычисления площади
+        perimeter = calculate_perimeter(a, b, c)  # Вызываем функцию для вычисления периметра
+
+        # Выводим результаты
+        print(f"Площадь треугольника: {area}")  # Выводим площадь
+        print(f"Периметр треугольника: {perimeter}")  # Выводим периметр
+    else:
+        print("Ошибка: такие длины сторон не могут образовать треугольник.")
