@@ -1,10 +1,31 @@
 import math
 
+def perimeter(radius):
+    """Вычисляет периметр (длину окружности) круга по заданному радиусу."""
+    return 2 * math.pi * radius
 
-def area(r):
-    return math.pi * r * r
+def area(radius):
+    """Вычисляет площадь круга по заданному радиусу."""
+    return math.pi * radius ** 2
 
+def main():
+    while True:
+        try:
+            # Ввод радиуса от пользователя
+            r = float(input("Введите радиус круга (положительное число): "))
+            
+            # Проверка на положительность радиуса
+            if r < 0:
+                print("Ошибка: Радиус должен быть положительным числом. Попробуйте еще раз.")
+                continue
+            
+            # Вычисление и вывод результатов
+            print(f"Периметр круга: {perimeter(r):.2f}")
+            print(f"Площадь круга: {area(r):.2f}")
+            break  # Выход из цикла, если ввод корректен
+            
+        except ValueError:
+            print("Ошибка: Пожалуйста, введите корректное число.")
 
-def perimeter(r):
-    return 2 * math.pi * r
-
+if __name__ == "__main__":
+    main()
