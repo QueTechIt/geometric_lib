@@ -3,7 +3,7 @@ import rectangle
 import circle
 import triangle
 import square
-
+''' ------ '''
 class GeometryTestCase(unittest.TestCase):
     '''Тестирование функциональности прямоугольника'''
 
