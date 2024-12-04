@@ -1,30 +1,66 @@
-name: Unit tests
+name: Run Unit Tests
 
 on:
   push:
-    branches: new_features_467443
+    branches:
+      - new_features_467443
 
 jobs:
-  ubuntu:
+  test-ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Setup python
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.9'
-      - name: Run tests
-        run: python -m unittest discover -s . -p "Tests.py" 
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Setup python
-        uses: actions/setup-python@v3
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.10' 
+
       - name: Run tests
         run: python -m unittest discover -s . -p "Tests.py"
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Run tests
+        run: python -m unittest discover -s . -p "Tests.py"
+
+# name: Unit tests
+
+# on:
+#   push:
+#     branches: new_features_467443
+
+# jobs:
+#   ubuntu:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v3
+#       - name: Setup python
+#         uses: actions/setup-python@v3
+#         with:
+#           python-version: '3.9'
+#       - name: Run tests
+#         run: python -m unittest discover -s . -p "Tests.py" 
+
+#   windows:
+#     runs-on: windows-latest
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v3
+#       - name: Setup python
+#         uses: actions/setup-python@v3
+#         with:
+#           python-version: '3.9'
+#       - name: Run tests
+#         run: python -m unittest discover -s . -p "Tests.py"
