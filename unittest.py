@@ -5,7 +5,7 @@ import triangle
 import square
 
 class GeometryTestCase(unittest.TestCase):
-    '''Тесты для прямоугольника'''
+    '''Тесты для прямоугольник'''
     def test_rectangle_area_zero_mul(self):
         self.assertEqual(rectangle.area(10, 0), 0)
     
