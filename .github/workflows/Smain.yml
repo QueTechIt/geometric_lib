@@ -1,47 +1,30 @@
-name: Run Unit TestsS
+name: Unit tests
 
 on:
   push:
-    branches:
-      - main  
+    branches: new_features_467443
 
 jobs:
-  test-ubuntu:
+  ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3 
-
-      - name: Set up Python
-        uses: actions/setup-python@v4  
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.10' 
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt  
-
+          python-version: '3.9'
       - name: Run tests
-        run: |
-          pytest unit_test.py
+        run: python -m unittest discover -s . -p "unittest.py" 
 
-  test-windows:
+  windows:
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3  
-
-      - name: Set up Python
-        uses: actions/setup-python@v4  
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup python
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.10' 
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
+          python-version: '3.9'
       - name: Run tests
-        run: |
-          pytest  unit_test.py
+        run: python -m unittest discover -s . -p "unittest.py"
