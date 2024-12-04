@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.9'
       - name: Run tests
-        run: python -m unittest discover -s . -p "unittest.py" 
+        run: python -m unittest discover -s . -p "Tests.py" 
 
   windows:
     runs-on: windows-latest
@@ -27,4 +27,4 @@ jobs:
         with:
           python-version: '3.9'
       - name: Run tests
-        run: python -m unittest discover -s . -p "unittest.py"
+        run: python -m unittest discover -s . -p "Tests.py"
