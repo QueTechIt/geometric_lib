@@ -1,5 +1,5 @@
 # Функция для вычисления площади прямоугольника
-def calculate_area(length, width):
+def area(length, width):
     """
     Вычисляет площадь прямоугольника.
 
@@ -20,7 +20,7 @@ def calculate_area(length, width):
 
 
 # Функция для вычисления периметра прямоугольника
-def calculate_perimeter(length, width):
+def perimeter(length, width):
     """
     Вычисляет периметр прямоугольника.
 
